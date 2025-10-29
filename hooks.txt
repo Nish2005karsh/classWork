@@ -1,0 +1,194 @@
+Here’s a list of essential React hooks along with examples for each. React hooks let you use state and other React features without writing a class.
+
+1. useState
+Used to add state to functional components.
+
+jsx
+Copy
+Edit
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click Me</button>
+    </div>
+  );
+}
+2. useEffect
+Used for side effects like data fetching, subscriptions, or manually changing the DOM.
+
+jsx
+Copy
+Edit
+import { useState, useEffect } from "react";
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setSeconds(s => s + 1), 1000);
+    return () => clearInterval(interval); // Cleanup
+  }, []);
+  []=>indicates one Timer
+
+  return <p>Timer: {seconds}s</p>;
+}
+3. useContext
+Access context values without writing a consumer.
+
+jsx
+Copy
+Edit
+import { useContext, createContext } from "react";
+
+const ThemeContext = createContext("light");
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+  return <button style={{ background: theme === "dark" ? "#333" : "#eee" }}>Theme Button</button>;
+}
+4. useRef
+Creates a mutable ref object that persists across renders.
+
+jsx
+Copy
+Edit
+import { useRef } from "react";
+
+function InputFocus() {
+  const inputRef = useRef(null);
+
+  const focusInput = () => inputRef.current.focus();
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={focusInput}>Focus Input</button>
+    </>
+  );
+}
+5. useMemo
+Memoizes expensive computations.
+
+jsx
+Copy
+Edit
+import { useMemo, useState } from "react";
+
+function Fibonacci({ n }) {
+  const fib = useMemo(() => {
+    const fibRec = (num) => (num <= 1 ? num : fibRec(num - 1) + fibRec(num - 2));
+    return fibRec(n);
+  }, [n]);
+
+  return <p>Fib({n}) = {fib}</p>;
+}
+6. useCallback
+Returns a memoized version of a callback function.
+
+jsx
+Copy
+Edit
+import { useState, useCallback } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => setCount(c => c + 1), []);
+
+  return <button onClick={increment}>Increment</button>;
+}
+7. useReducer
+Alternative to useState for complex state logic.
+
+jsx
+Copy
+Edit
+import { useReducer } from "react";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment": return { count: state.count + 1 };
+    case "decrement": return { count: state.count - 1 };
+    default: return state;
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+    </>
+  );
+}
+8. useLayoutEffect
+Same as useEffect, but runs synchronously after all DOM mutations.
+
+jsx
+Copy
+Edit
+import { useLayoutEffect, useRef } from "react";
+
+function LayoutExample() {
+  const boxRef = useRef();
+
+  useLayoutEffect(() => {
+    boxRef.current.style.backgroundColor = "lightblue";
+  }, []);
+
+  return <div ref={boxRef}>I'm styled with useLayoutEffect!</div>;
+}
+9. useImperativeHandle
+Customizes the instance value exposed when using ref with a child component.
+
+jsx
+Copy
+Edit
+import { useImperativeHandle, forwardRef, useRef } from "react";
+
+const CustomInput = forwardRef((props, ref) => {
+  const inputRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    focus: () => inputRef.current.focus(),
+  }));
+
+  return <input ref={inputRef} />;
+});
+
+function Parent() {
+  const ref = useRef();
+
+  return (
+    <>
+      <CustomInput ref={ref} />
+      <button onClick={() => ref.current.focus()}>Focus Input</button>
+    </>
+  );
+}
+10. useId (React 18+)
+Generates unique IDs for accessibility or keys.
+
+jsx
+Copy
+Edit
+import { useId } from "react";
+
+function FormField() {
+  const id = useId();
+
+  return (
+    <>
+      <label htmlFor={id}>Name:</label>
+      <input id={id} />
+    </>
+  );
+}

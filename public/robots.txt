@@ -1,3 +1,35 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+Calling components 
+<ExampleComponent/>
+React supports the Camel Case
+classname instead of class
+Props refers to properties.Special keyword in React.Divides UI into small interface.
+React is a component based library.
+Functinoal component
+Important part is that data with the props are being passed in aunidirectional flow(one way  form parent to child)
+Props data is read only.
+Cannot modify the props
+
+Using proprs in react exapmple
+
+class ParentComponent extends components{
+    render(){
+        return{
+            <h1>I am parent component</h1>
+
+        }
+    }
+}
+class components{
+    <p>I am the first child</p>
+
+}
+Output=>I am the first child 
+
+const childComponent=(props)=>{
+    return<p>{props.text}</p>
+
+}
+Prop is used to communicate between the component
+why create components?
+Node modules are basically javascript packages
+ 

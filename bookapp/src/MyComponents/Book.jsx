@@ -2,11 +2,21 @@ import React from 'react'
 // import css
 import './Book.css'
 const Book = () => {
+    const [book,setBook]=useState(0);
+    function addToCart(){
+        setBook(book+1);
+    }
+    function removeFromCart(){
+        setBook(book-1);
+    }
   return (
     <div id="book">
-        <img src="https://booksandyou.in/cdn/shop/files/TheMathBook_1.webp?v=1732795361" alt="Book Cover" style={{height:400,width:300}} />
+        <img src="" alt="Book Cover" style={{height:400,width:300}} />
         <h1>Title:Math</h1>
         <h1>250</h1>
+        <h1>Quantity:{book}</h1>
+        <button onClick={addToCart}>Add to Cart</button>
+        <button onClick={removeFromCart}>Remove from Cart</button>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Navbar from './MyComponents/Navbar.jsx';
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar title="BookApp" aboutText="Home" link="Books" searchBar={true} />
       <Book />
       
     </div>

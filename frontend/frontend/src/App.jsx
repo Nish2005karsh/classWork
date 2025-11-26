@@ -4,6 +4,7 @@ import './App.css'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Fashion from './Fashion'
+import Data from '../data.jsx'
 export const App = () => {
   return (
     <Routes>
@@ -11,6 +12,8 @@ export const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/fashion" element={<Fashion />} />
+      <Route path="/data" element={<Data />} />
+
     </Routes>
   )
 }

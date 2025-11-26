@@ -19,14 +19,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Card from './Mycomponents/Card';
 import Navbar from './Mycomponents/Navbar'
-import UseState from './Mycomponents/UseState';
-import Counter from './Mycomponents/Counter';
-import Count from './Mycomponents/Count';
-import UseStates from './Mycomponents/useStates';
+// import UseState from './Mycomponents/UseState';
+// import Counter from './Mycomponents/Counter';
+// import Count from './Mycomponents/Count';
+// import UseStates from './Mycomponents/useStates';
+import Counting from './Mycomponents/Counting';
+
 export default function App () {
   return (  
     <div>
-      <UseStates />
+    <Counting />
 
       
       {/* <Navbar  title="Navbar" aboutText="Home" Link="Link"  />

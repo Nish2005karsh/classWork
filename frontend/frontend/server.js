@@ -10,20 +10,27 @@
 
 import http from 'http';
 const PORT=5000;
-
+import fs from 'fs';
 http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     const url = req.url;
     if (url === '/about') {
-        res.write(' Welcome to about us page');
+        res.write(' <h1>We are student of ABES EC</h1>');
+        // add the image
+        res.write('<img src="https://manage.collnod.com/Upload/Content/web_img_0_1_9_2023_12_42_12.gif" style="width: 700px; height: 350px;" alt="Placeholder Image">');
         res.end();
     }
     else if (url === '/contact') {
-        res.write(' Welcome to contact us page');
+        res.write(' <h1>Welcome to contact us page</h1>');
         res.end();
     }
+    else if(url==='/class'){
+        res.write(' <h1>Hello, welcome to the hi page!</h1>');
+        res.end();
+    }
+
     else {
-        res.write('404 Not Found');
+        res.write(' <h1>404 Not Found</h1>');
         res.end();
     }
 }).listen(PORT, function () {

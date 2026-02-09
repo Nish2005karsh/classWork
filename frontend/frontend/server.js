@@ -92,11 +92,22 @@
 //     console.log("Succesfully appended");
 // });
 // append using appendFileSync
+// import fs from 'fs';
+// try{
+//     fs.appendFileSync('example.txt', '\nThis is appended text using appendFileSync.');
+//     console.log("Successfully appended using appendFileSync.");
+// }
+// catch(err){
+//     console.error('Error appending to file:', err);
+// }
+// append using normal callback
 import fs from 'fs';
-try{
-    fs.appendFileSync('example.txt', '\nThis is appended text using appendFileSync.');
-    console.log("Successfully appended using appendFileSync.");
-}
-catch(err){
-    console.error('Error appending to file:', err);
-}
+fs.appendFile('example.txt', '\nThis is appended text using normal callback.', (err) => {
+    if (err) {
+        console.error('Error appending to file:', err);
+        return;
+    }
+    console.log('File appended successfully')
+});
+// using if  else call back
+

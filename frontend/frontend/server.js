@@ -124,15 +124,26 @@
 // }
 
 // Using async
+// import fs from 'fs';
+// const sourceFile = 'a1.txt';
+// const destinationFile = 'b1.txt';
+// fs.copyFile(sourceFile, destinationFile, (err) => {
+//   if (err) {
+//     console.error('Error copying file:', err);
+//     throw err;
+//   }
+//   console.log(`${sourceFile} was copied to ${destinationFile}`);
+// });
+
+
+
+// Deleting a file
 import fs from 'fs';
-const sourceFile = 'a1.txt';
-const destinationFile = 'b1.txt';
-fs.copyFile(sourceFile, destinationFile, (err) => {
-  if (err) {
-    console.error('Error copying file:', err);
-    throw err;
-  }
-  console.log(`${sourceFile} was copied to ${destinationFile}`);
-});
-
-
+const fileTodelete="a1.txt";
+try{
+    fs.unlinkSync(fileTodelete);
+    console.log('File deleted successfully');
+}
+catch(err){
+    console.log('Error in file deleting');
+}

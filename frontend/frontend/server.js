@@ -101,13 +101,38 @@
 //     console.error('Error appending to file:', err);
 // }
 // append using normal callback
+// import fs from 'fs';
+// fs.appendFile('example.txt', '\nThis is appended text using normal callback.', (err) => {
+//     if (err) {
+//         console.error('Error appending to file:', err);
+//         return;
+//     }
+//     console.log('File appended successfully')
+// });
+
+// copy aa1.txt to b1.txt
+// import fs from 'fs';
+// const sourceFile="a1.txt";
+// const destinationFile="b1.txt";
+
+// try{
+//     fs.copyFileSync(sourceFile,destinationFile);
+//     console.log('fILE copied succesfully');
+// }
+// catch(err){
+//     console.log('Error in file copying');
+// }
+
+// Using async
 import fs from 'fs';
-fs.appendFile('example.txt', '\nThis is appended text using normal callback.', (err) => {
-    if (err) {
-        console.error('Error appending to file:', err);
-        return;
-    }
-    console.log('File appended successfully')
+const sourceFile = 'a1.txt';
+const destinationFile = 'b1.txt';
+fs.copyFile(sourceFile, destinationFile, (err) => {
+  if (err) {
+    console.error('Error copying file:', err);
+    throw err;
+  }
+  console.log(`${sourceFile} was copied to ${destinationFile}`);
 });
-// using if  else call back
+
 

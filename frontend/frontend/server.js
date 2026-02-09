@@ -74,11 +74,29 @@
 //     }
 //     console.log('File written successfully.');
 // }); 
-import fs from'fs';
-fs.readFile('./example.txt', 'utf-8', (err, data) => {
-    if (err) {
-        console.error('Error reading file:', err);
-        return;
-    }
-    console.log(data);
-});
+// import fs from'fs';
+// fs.readFile('./example.txt', 'utf-8', (err, data) => {
+//     if (err) {
+//         console.error('Error reading file:', err);
+//         return;
+//     }
+//     console.log(data);
+// });
+// append in file
+// import fs from 'fs';
+// fs.appendFile('example.txt', '\nThis is appended text.', (err) => {
+//     if (err) {
+//         console.error('Error appending to file:', err);
+//         return;
+//     }
+//     console.log("Succesfully appended");
+// });
+// append using appendFileSync
+import fs from 'fs';
+try{
+    fs.appendFileSync('example.txt', '\nThis is appended text using appendFileSync.');
+    console.log("Successfully appended using appendFileSync.");
+}
+catch(err){
+    console.error('Error appending to file:', err);
+}

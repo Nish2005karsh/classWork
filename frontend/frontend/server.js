@@ -65,12 +65,20 @@
 //     }
 //     console.log(data);
 // });
-import fs from 'fs';
-// Write file
-fs.writeFile('example.txt', 'Hello, this is an example file.', (err) => {
+// import fs from 'fs';
+// // Write file
+// fs.writeFile('example.txt', 'Hello.', (err) => {
+//     if (err) {
+//         console.error('Error writing file:', err);   
+//         return;
+//     }
+//     console.log('File written successfully.');
+// }); 
+import fs from'fs';
+fs.readFile('./example.txt', 'utf-8', (err, data) => {
     if (err) {
-        console.error('Error writing file:', err);   
+        console.error('Error reading file:', err);
         return;
     }
-    console.log('File written successfully.');
-}); 
+    console.log(data);
+});

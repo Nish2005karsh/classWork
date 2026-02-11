@@ -164,17 +164,22 @@
 //     console.log('Error writing data:', err);
 // }
 // Reading the json data
-import fs from 'fs';
-const location='./data.json';
-try{
-    fs.readFile(location, 'utf-8', (err, data) => {
-        if (err) {
-            console.error('Error reading file:', err);
-            return;
-        }
-        console.log('Data read successfully:', JSON.parse(data));   
-    });
-}
-catch(err){
-    console.log('Error found ',err);
-}
+// import fs from 'fs';
+// const location='./data.json';
+// try{
+//     fs.readFile(location, 'utf-8', (err, data) => {
+//         if (err) {
+//             console.error('Error reading file:', err);
+//             return;
+//         }
+//         console.log('Data read successfully:', JSON.parse(data));   
+//     });
+// }
+// catch(err){
+//     console.log('Error found ',err);
+// }
+// import os from 'os';
+// console.log(os.platform());
+// console.log(os.userInfo());
+// console.log(os.arch());
+// console.log(os.cpus());

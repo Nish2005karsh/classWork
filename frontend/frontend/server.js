@@ -138,12 +138,43 @@
 
 
 // Deleting a file
+// import fs from 'fs';
+// const fileTodelete="a1.txt";
+// try{
+//     fs.unlinkSync(fileTodelete);
+//     console.log('File deleted successfully');
+// }
+// catch(err){
+//     console.log('Error in file deleting');
+// }
+// Handling json data using js
+// import fs from 'fs'
+// const location='./data.json';
+// const data={ 
+//     name:'John Doe',
+//     age:30,
+//     city:'New York'
+// }
+// try{
+//     fs.writeFileSync(location, JSON.stringify(data));
+//     console.log('Data written successfully');
+//     console.log('Data is :',data);
+// }
+// catch(err){
+//     console.log('Error writing data:', err);
+// }
+// Reading the json data
 import fs from 'fs';
-const fileTodelete="a1.txt";
+const location='./data.json';
 try{
-    fs.unlinkSync(fileTodelete);
-    console.log('File deleted successfully');
+    fs.readFile(location, 'utf-8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        }
+        console.log('Data read successfully:', JSON.parse(data));   
+    });
 }
 catch(err){
-    console.log('Error in file deleting');
+    console.log('Error found ',err);
 }

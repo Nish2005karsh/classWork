@@ -178,12 +178,13 @@
 // catch(err){
 //     console.log('Error found ',err);
 // }
-import os from 'os';
-console.log(os.platform());
-console.log(os.userInfo());
-console.log(os.arch());
-console.log(os.cpus());
-console.log(os.freemem());
-console.log(os.totalmem());
-console.log(os.uptime());
-console.log(os.homedir());
+// import os from 'os';
+// console.log(os.platform());
+// console.log(os.userInfo());
+// console.log(os.arch());
+// console.log(os.cpus());
+// console.log(os.freemem());
+// console.log(os.totalmem());
+// console.log(os.uptime());
+// console.log(os.homedir());
+// console.log(os.hostname());

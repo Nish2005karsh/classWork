@@ -1,7 +1,6 @@
 const express=require('express');
 // import express from express;
 const cors=require('cors');
-
 const app=express();
 app.use(cors());
 const PORT=3000
@@ -19,16 +18,19 @@ app.get('/about',(req,res)=>{
     const students=[
         {
             id:1,
+            image:"https://randomuser.me/api/portraits/men/1.jpg",
             name:"John",
             class:10
         },
         {
             id:2,
+            image:"https://randomuser.me/api/portraits/men/2.jpg",
             name:"Jackson",
             class:11
         },
         {
             id:3,
+            image:"https://randomuser.me/api/portraits/men/3.jpg",
             name:"China",
             class:12
         },]
